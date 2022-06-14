@@ -5,6 +5,10 @@ body {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+footer {
+  text-align: center;
+}
+
 a:link {
   color: #000000;
   text-decoration: none;
@@ -157,6 +161,7 @@ input {
   margin-left: 0.2rem;
   color: white !important;
   text-decoration: none;
+  padding-right: 1rem;
 }
 
 .header-button {
@@ -183,7 +188,7 @@ textarea {
 }
 
 .app-container {
-  width: 85%;
+  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
 }

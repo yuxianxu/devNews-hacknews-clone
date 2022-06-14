@@ -1,48 +1,37 @@
 import view from '../utils/view.js';
-import Story from '../Components/Story.js';
-import baseUrl from '../utils/baseUrl.js';
 import store from '../store.js';
+import Story from '../Components/Story.js';
 import checkFavorite from '../utils/checkFavorite.js';
 
-export default async function Stories(path) {
+export default function Favorites() {
   const { favorites } = store.getState();
-  const stories = await getStories(path);
-  const hasStories = stories.length > 0;
+  const hasFavorites = favorites.length > 0;
 
   view.innerHTML = `<div>
     ${
-      hasStories
-        ? stories
-            .map((story, i) =>
+      hasFavorites
+        ? favorites
+            .map((story) =>
               Story({
                 ...story,
-                index: i + 1,
                 isFavorite: checkFavorite(favorites, story),
               })
             )
             .join('')
-        : 'No stories'
-    }
-  </div>`;
+        : 'Add some favorite stories'
+    }    
+    </div>    
+    `;
 
   document.querySelectorAll('.favorite').forEach((favoriteButton) => {
-    favoriteButton.addEventListener('click', async function () {
+    favoriteButton.addEventListener('click', function () {
       const story = JSON.parse(this.dataset.story);
       const isFavorited = checkFavorite(favorites, story);
       store.dispatch({
         type: isFavorited ? 'REMOVE_FAVORITE' : 'ADD_FAVORITE',
         payload: { favorite: story },
       });
-      await Stories(path);
+      Favorites();
     });
   });
-}
-
-async function getStories(path) {
-  if (path === '/') path = '/news';
-  if (path === '/new') path = '/newest';
-
-  const response = await fetch(`${baseUrl}${path}`);
-
-  return response.json();
 }

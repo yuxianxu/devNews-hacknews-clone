@@ -1,29 +1,19 @@
-export default function Story({
-  index,
-  url,
-  domain,
-  title,
-  points,
-  user,
-  time_ago,
-  id,
-  comments_count,
-}) {
+export default function Story(story) {
   return `
      <div>
         <div class= 'story'>
-            <span>${index}</span>
+            <span>${story.index || ''}</span>
             <span>▲</span>
-            <a href='${url}'>${title}</a>
-            <span>(${domain})</span>
+            <a href='${story.url}'>${story.title}</a>
+            <span>(${story.domain})</span>
         </div>         
         <div>
             <div class='gray'>
-            ${points} points by ${user} ${time_ago} | 
-            <a href='#/item?id=${id}'>${comments_count} comments</a> |
-            <span class='favorite'>
+            ${story.points} points by ${story.user} ${story.time_ago} | 
+            <a href='#/item?id=${story.id}'>${story.comments_count} comments</a> |
+            <span class='favorite' data-story='${JSON.stringify(story)}'>
             <img class='heart' src=''>
-            ♥ Add To Favorites
+             ${story.isFavorite ? '♥ Remove from Favorites' : '♡ Add To Favorites'}
             </span>
             </div>
         </div>
