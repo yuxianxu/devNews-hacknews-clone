@@ -10,9 +10,11 @@ footer {
 }
 
 a:link {
-  color: #000000;
+  color: #444444;
   text-decoration: none;
 }
+
+
 
 a:visited {
   color: #828282;
@@ -32,11 +34,16 @@ a:visited {
 }
 
 header .flex a {
-  color: black;
+  color: rgb(79, 77, 77);
 }
 
 .gray {
-  margin-top: 0.25em;
+  margin-bottom: 0.65em;
+  color: #828282;
+  font-size: 0.85rem;
+}
+
+.gray a {
   color: #828282;
 }
 
@@ -48,9 +55,28 @@ header .flex a {
   background-color: rgb(246, 246, 239);
 }
 
-.story {
-  padding-top: 0.25em;
-  padding-bottom: 0.5em;
+.story-container {
+  display: flex;
+}
+
+.story-container span {
+  padding-top: 0.2rem;
+  padding-right: 0.5rem;
+  color: #828282;
+}
+
+
+.story :nth-child(3){
+  color: #828282;
+}
+
+.story a {
+  font-size: 1.1rem;
+}
+
+.story a:hover, .gray a:hover {
+  color: #ff6600;
+  transform: scale(2);
 }
 
 hr {
@@ -167,7 +193,7 @@ input {
   margin-left: 0.2rem;
   color: white !important;
   text-decoration: none;
-  padding-right: 1rem;
+  margin-right: 1rem;
 }
 
 .header-button {
