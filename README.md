@@ -38,7 +38,7 @@
 
 ---
 
-### Favorites
+### Favorites Page
 
 ![homepage](https://github.com/yuxianxu/devNews-hacknews-clone/blob/master/assets/images/dev-news-screenshot-6.png)
 
