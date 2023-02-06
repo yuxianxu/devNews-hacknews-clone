@@ -2,7 +2,7 @@
 
 ## Live
 
-### [dev-daily](https://dev-daily.herokuapp.com)
+### [dev-daily](https://dev-news-daily.vercel.app/)
 
 ## Screenshots
 
